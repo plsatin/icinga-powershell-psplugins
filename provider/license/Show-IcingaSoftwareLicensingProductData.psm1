@@ -1,4 +1,4 @@
-function Show-IcingaSoftwareLicensingProductData {
+﻿function Show-IcingaSoftwareLicensingProductData {
     $LicenseInformation = Get-WmiObject -Class SoftwareLicensingProduct | Where-Object PartialProductKey;
     [hashtable]$LicenseData = @{};
 

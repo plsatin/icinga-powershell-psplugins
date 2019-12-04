@@ -1,8 +1,8 @@
-<#
+﻿<#
 .SYNOPSIS
     Get Software licensing product status
 .DESCRIPTION
-    The script returns ok warning or critical depending on the status of the license. Also returns the total number of licensed software products. To obtain data, use the SoftwareLicensingProduct class. More Information on https://docs.microsoft.com/en-us/previous-versions/windows/desktop/sppwmi/softwarelicensingproduct
+    The script returns ok warning or critical depending on the status of the license. Also returns the total number of licensed software products. To obtain data, use the **SoftwareLicensingProduct** class. More Information on https://docs.microsoft.com/en-us/previous-versions/windows/desktop/sppwmi/softwarelicensingproduct
 .FUNCTIONALITY
     This module is designed to obtain product licensing status.
 .EXAMPLE
@@ -12,7 +12,6 @@
     \_ [OK] Office 15, OfficeProPlusVL_KMS_Client edition (Volume:GVLK): Licensed: 1
     \_ [OK] Office 15, OfficeVisioProVL_KMS_Client edition (Volume:GVLK): Licensed: 1
     \_ [OK] Windows(R), ServerStandard edition (Volume:GVLK): Licensed: 1
-    0
 .PARAMETER ProductFilter
     The parameter is used to filter software products.
 .INPUTS
@@ -27,13 +26,13 @@
 function Invoke-IcingaSoftwareLicensingProduct {
     param (
         [array]$ProductFilter,
-        [switch]$NoPerfData,
+        [switch]$NoPerfData = $true,
         [ValidateSet(0, 1, 2, 3)]
         [int]$Verbosity = 3
     );
 
     # # Тестовые переменные
-    # [array]$ProductFilter = @()
+    # [array]$ProductFilter = @('Office15')
     # $NoPerfData          = $true
     # [int]$Verbosity      = 3
 

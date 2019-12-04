@@ -1,4 +1,4 @@
-function Use-IcingaPlugins()
+﻿function Use-IcingaPlugins()
 {
     Import-IcingaPlugins -Directory 'provider';
     Import-IcingaPlugins -Directory 'plugins';

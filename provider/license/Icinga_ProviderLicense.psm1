@@ -1,4 +1,4 @@
-Import-IcingaLib provider\enums;
+﻿Import-IcingaLib provider\enums;
 
 function Get-IcingaSoftwareLicensingProduct {
     param(
