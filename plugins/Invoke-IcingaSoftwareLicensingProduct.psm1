@@ -26,7 +26,7 @@
 function Invoke-IcingaSoftwareLicensingProduct {
     param (
         [array]$ProductFilter,
-        [switch]$NoPerfData = $true,
+        [switch]$NoPerfData,
         [ValidateSet(0, 1, 2, 3)]
         [int]$Verbosity = 3
     );
