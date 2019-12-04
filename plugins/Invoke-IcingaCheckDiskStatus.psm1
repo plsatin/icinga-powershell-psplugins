@@ -15,7 +15,7 @@
 .OUTPUTS
    System.String
 .LINK
-   https://github.com/Icinga/icinga-powershell-plugins
+   https://github.com/Icinga/icinga-powershell-psplugins
 .NOTES
 #>
 
