@@ -15,9 +15,9 @@
 
 
 
-[hashtable]$ProviderEnums = @{
+[hashtable]$PSProviderEnums = @{
     #/lib/provider/license
     LicenseStatusDescription = $LicenseStatusDescription;
 }
 
-Export-ModuleMember -Variable @('ProviderEnums');
+Export-ModuleMember -Variable @('PSProviderEnums');

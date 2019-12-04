@@ -1,43 +1,40 @@
 <#
 .SYNOPSIS
-   Get Software Product License status
+    Get Software licensing product status
 .DESCRIPTION
-
-
+    The script returns ok warning or critical depending on the status of the license. Also returns the total number of licensed software products. To obtain data, use the SoftwareLicensingProduct class. More Information on https://docs.microsoft.com/en-us/previous-versions/windows/desktop/sppwmi/softwarelicensingproduct
 .FUNCTIONALITY
-
-
+    This module is designed to obtain product licensing status.
 .EXAMPLE
-PS> Invoke-IcingaCheckSoftProductLic
-[OK] Check package "SoftwareLicensingProduct" (Match All)
-\_ [OK] - Total licenses: 3
-\_ [OK] Office 15, OfficeProPlusVL_KMS_Client edition (Volume:GVLK): Licensed: 1
-\_ [OK] Office 15, OfficeVisioProVL_KMS_Client edition (Volume:GVLK): Licensed: 1
-\_ [OK] Windows(R), ServerStandard edition (Volume:GVLK): Licensed: 1
-0
-
+    PS> Invoke-IcingaSoftwareLicensingProduct
+    [OK] Check package "SoftwareLicensingProduct" (Match All)
+    \_ [OK] - Total licenses: 3
+    \_ [OK] Office 15, OfficeProPlusVL_KMS_Client edition (Volume:GVLK): Licensed: 1
+    \_ [OK] Office 15, OfficeVisioProVL_KMS_Client edition (Volume:GVLK): Licensed: 1
+    \_ [OK] Windows(R), ServerStandard edition (Volume:GVLK): Licensed: 1
+    0
+.PARAMETER ProductFilter
+    The parameter is used to filter software products.
+.INPUTS
+    System.String
 .OUTPUTS
-   System.String
+    System.String
 .LINK
-   https://github.com/plsatin/icinga-powershell-psplugins
+    https://github.com/plsatin/icinga-powershell-psplugins
 .NOTES
 #>
 
 function Invoke-IcingaSoftwareLicensingProduct {
     param (
         [array]$ProductFilter,
-        # $Warning             = $null,
-        # $Critical            = $null,
         [switch]$NoPerfData,
         [ValidateSet(0, 1, 2, 3)]
-        [int]$Verbosity      = 3
+        [int]$Verbosity = 3
     );
 
     # # Тестовые переменные
     # [array]$ProductFilter = @()
     # $NoPerfData          = $true
-    # $Warning             = $null
-    # $Critical            = $null
     # [int]$Verbosity      = 3
 
     $ProductsPackage  = New-IcingaCheckPackage -Name 'SoftwareLicensingProduct' -OperatorAnd -Verbose $Verbosity;

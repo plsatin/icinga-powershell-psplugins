@@ -11,5 +11,5 @@ Please take a look at the following content to get to know the extent of the mod
 
 ## Contributing
 
-* Please check whether a related issue already exists on our [Issue Tracker](https://github.com/plsatin/plsatin-powershell-plugins/issues)
-* Send a [Pull Request](https://github.com/plsatin/plsatin-powershell-plugins/pulls)
+* Please check whether a related issue already exists on our [Issue Tracker](https://github.com/plsatin/iciniga-powershell-psplugins/issues)
+* Send a [Pull Request](https://github.com/plsatin/iciniga-powershell-psplugins/pulls)

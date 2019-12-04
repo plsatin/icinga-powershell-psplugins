@@ -18,8 +18,7 @@ function Get-IcingaSoftwareLicensingProduct {
     }
 
     $ErrorActionPreference = "SilentlyContinue"
-
-    $ProviderEnums.Add('LicenseStatusDescription', $LicenseStatusDescription);
+    $PSProviderEnums.Add('LicenseStatusDescription', $LicenseStatusDescription);
 
 
 
@@ -47,7 +46,7 @@ function Get-IcingaSoftwareLicensingProduct {
                     'ProductKeyChannel' = $lic.ProductKeyChannel;
                     'LicenseStatus' = @{
                         'raw'   = $lic.LicenseStatus;
-                        'value' = $ProviderEnums.LicenseStatusDescription[[int]$lic.LicenseStatus];
+                        'value' = $PSProviderEnums.LicenseStatusDescription[[int]$lic.LicenseStatus];
                     };
                     'KeyManagementServiceMachine' = $lic.KeyManagementServiceMachine
             }
