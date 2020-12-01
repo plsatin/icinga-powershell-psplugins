@@ -1,7 +1,7 @@
 ﻿function Use-IcingaPSPlugins()
 {
-    Import-IcingaPlugins -Directory 'provider';
-    Import-IcingaPlugins -Directory 'plugins';
+    Import-IcingaPSPlugins -Directory 'provider';
+    Import-IcingaPSPlugins -Directory 'plugins';
 }
 
 function Import-IcingaPSPlugins()
