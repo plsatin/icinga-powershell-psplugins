@@ -1,10 +1,10 @@
-﻿function Use-IcingaPlugins()
+﻿function Use-IcingaPSPlugins()
 {
     Import-IcingaPlugins -Directory 'provider';
     Import-IcingaPlugins -Directory 'plugins';
 }
 
-function Import-IcingaPlugins()
+function Import-IcingaPSPlugins()
 {
     param(
         [Parameter(
@@ -31,7 +31,7 @@ function Import-IcingaPlugins()
     }
 }
 
-function Publish-IcingaPluginDocumentation()
+function Publish-IcingaPSPluginDocumentation()
 {
     [string]$PluginDir = Join-Path -Path $PSScriptRoot -ChildPath 'plugins';
     [string]$DocDir = Join-Path -Path $PSScriptRoot -ChildPath 'doc';
