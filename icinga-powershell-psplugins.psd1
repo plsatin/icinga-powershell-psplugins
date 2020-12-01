@@ -2,7 +2,7 @@
     ModuleVersion = '0.0.1'
     GUID = 'b4b6e84f-fc6a-4868-bafb-004cbb58c438' # Сгенерировать GUID
     RootModule        = 'icinga-powershell-psplugins.psm1'
-    ModuleToProcess = 'icinga-powershell-psplugins.psm1'
+    # ModuleToProcess = 'icinga-powershell-psplugins.psm1'
     Author = 'Pavel Satin'
     CompanyName = 'Pavel Satin'
     Copyright = '(c) 2019 Pavel Satin'
