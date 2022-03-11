@@ -1,0 +1,12 @@
+{
+    "Info":  {
+                 "LocalSource":  "C:\\Program Files\\WindowsPowerShell\\Modules\\icinga-powershell-psplugins",
+                 "RemoteSource":  "C:\\Program Files\\WindowsPowerShell\\Modules\\icinga-powershell-psplugins",
+                 "Created":  "2021/12/06 08:38:42",
+                 "Updated":  "2021/12/06 08:38:42",
+                 "RepoHash":  null
+             },
+    "Packages":  {
+
+                 }
+}

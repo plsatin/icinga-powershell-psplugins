@@ -32,9 +32,8 @@
 
 
 [hashtable]$PSProviderEnums = @{
-    #/lib/provider/license
-    LicenseStatusDescription = $LicenseStatusDescription;
-    DiskDriveStatus = $DiskDriveStatus;
+    'LicenseStatusDescription' = $LicenseStatusDescription;
+    'DiskDriveStatus'          = $DiskDriveStatus;
 }
 
 Export-ModuleMember -Variable @('PSProviderEnums');

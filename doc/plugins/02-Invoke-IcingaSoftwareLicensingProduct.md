@@ -5,7 +5,11 @@
 
 Get Software licensing product status
 
-The script returns ok warning or critical depending on the status of the license. Also returns the total number of licensed software products. To obtain data, use the SoftwareLicensingProduct class. More Information on https://docs.microsoft.com/en-us/previous-versions/windows/desktop/sppwmi/softwarelicensingproduct
+The script returns ok warning or critical depending on the status of the license. Also returns the total number of licensed software products. To obtain data, use the **SoftwareLicensingProduct** class. More Information on https://docs.microsoft.com/en-us/previous-versions/windows/desktop/sppwmi/softwarelicensingproduct
+
+## Permissions
+
+No special permissions required.
 
 ## Arguments
 
@@ -14,6 +18,7 @@ The script returns ok warning or critical depending on the status of the license
 | ProductFilter | Array | false |  | The parameter is used to filter software products. |
 | NoPerfData | SwitchParameter | false | False |  |
 | Verbosity | Int32 | false | 3 |  |
+| ThresholdInterval | String |  |  | Change the value your defined threshold checks against from the current value to a collected time threshold of the Icinga for Windows daemon, as described [here](https://icinga.com/docs/icinga-for-windows/latest/doc/service/10-Register-Service-Checks/). An example for this argument would be 1m or 15m which will use the average of 1m or 15m for monitoring. |
 
 ## Examples
 

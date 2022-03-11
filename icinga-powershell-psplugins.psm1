@@ -1,15 +1,15 @@
-﻿function Use-IcingaPSPlugins()
+function Use-IcingaPlugins()
 {
-    Import-IcingaPSPlugins -Directory 'provider';
-    Import-IcingaPSPlugins -Directory 'plugins';
+    Import-IcingaPlugins -Directory 'provider';
+    Import-IcingaPlugins -Directory 'plugins';
 }
 
-function Import-IcingaPSPlugins()
+function Import-IcingaPlugins()
 {
     param(
         [Parameter(
-            Position=0, 
-            Mandatory=$true, 
+            Position=0,
+            Mandatory=$true,
             ValueFromPipeline=$true,
             ValueFromPipelineByPropertyName=$true)
         ]
@@ -31,7 +31,7 @@ function Import-IcingaPSPlugins()
     }
 }
 
-function Publish-IcingaPSPluginDocumentation()
+function Publish-IcingaPluginDocumentation()
 {
     [string]$PluginDir = Join-Path -Path $PSScriptRoot -ChildPath 'plugins';
     [string]$DocDir = Join-Path -Path $PSScriptRoot -ChildPath 'doc';

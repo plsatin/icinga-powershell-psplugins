@@ -1,26 +1,39 @@
-﻿@{
-    ModuleVersion = '0.0.1'
-    GUID = 'b4b6e84f-fc6a-4868-bafb-004cbb58c438' # Сгенерировать GUID
+@{
+    ModuleVersion     = '1.0.0'
     RootModule        = 'icinga-powershell-psplugins.psm1'
-    # ModuleToProcess = 'icinga-powershell-psplugins.psm1'
-    Author = 'Pavel Satin'
-    CompanyName = 'Pavel Satin'
-    Copyright = '(c) 2019 Pavel Satin'
-    Description = 'A collection of Icinga PowerShell for the Icinga PowerShell Framework'
+    GUID              = '9a4f0652-2908-42c2-be5d-fb315a47a49f'
+    Author            = 'Pavel Satin'
+    CompanyName       = ''
+    Copyright         = '(c) 2021 Pavel Satin | GPL v2.0'
+    Description       = ''
     PowerShellVersion = '4.0'
-    RequiredModules = @( 'icinga-powershell-framework' )
-    FunctionsToExport = @('*')
-    CmdletsToExport = @('*')
-    VariablesToExport = '*'
-    AliasesToExport = @()
-    PrivateData = @{
-        PSData = @{
-            Tags = @( 'icinga', 'icinga2', 'icinga 2', 'monitoring plugins', 'icinga plugins', 'icinga 2 plugins')
-            LicenseUri = 'https://github.com/plsatin/icinga-powershell-psplugins/blob/master/LICENSE'
-            ProjectUri = 'https://github.com/plsatin/icinga-powershell-psplugins'
-            ReleaseNotes = 'https://github.com/plsatin/icinga-powershell-psplugins/releases'
+    RequiredModules   = @(
+        @{ ModuleName = 'icinga-powershell-framework'; ModuleVersion = '1.7.0'; }
+    )
+    NestedModules     = @(
+        '.\plugins\Invoke-IcingaCheckDiskStatus.psm1',
+        '.\plugins\Invoke-IcingaSoftwareLicensingProduct.psm1',
+        '.\provider\enums\Icinga_PSProviderEnums.psm1',
+        '.\provider\license\Icinga_ProviderLicense.psm1',
+        '.\provider\license\Show-IcingaSoftwareLicensingProductData.psm1'
+    )
+    FunctionsToExport = @( '*' )
+    CmdletsToExport   = @( '*' )
+    VariablesToExport = @( '*' )
+    AliasesToExport   = @( '*' )
+    PrivateData       = @{
+        PSData   = @{
+            Tags         = @( 'psplugins' )
+            LicenseUri   = ''
+            ProjectUri   = ''
+            ReleaseNotes = ''
         };
-        Version = 'v0.0.1';
+        Version  = 'v1.0.0'
+        Name     = 'Windows psplugins';
+        Type     = 'plugins';
+        Function = '';
+        Endpoint = '';
     }
-    HelpInfoURI = 'https://github.com/plsatin/icinga-powershell-psplugins'
+    HelpInfoURI       = ''
 }
+

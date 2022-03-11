@@ -2,7 +2,7 @@
 .SYNOPSIS
     Get Software licensing product status
 .DESCRIPTION
-    The script returns ok warning or critical depending on the status of the license. Also returns the total number of licensed software products. To obtain data, use the **SoftwareLicensingProduct** WMI class. More Information on https://docs.microsoft.com/en-us/previous-versions/windows/desktop/sppwmi/softwarelicensingproduct
+    The script returns ok warning or critical depending on the status of the license. Also returns the total number of licensed software products. To obtain data, use the **SoftwareLicensingProduct** class. More Information on https://docs.microsoft.com/en-us/previous-versions/windows/desktop/sppwmi/softwarelicensingproduct
 .FUNCTIONALITY
     This module is designed to obtain product licensing status.
 .EXAMPLE

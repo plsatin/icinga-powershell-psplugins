@@ -15,7 +15,7 @@
 .OUTPUTS
    System.String
 .LINK
-   https://github.com/plsatin/icinga-powershell-psplugins
+   https://github.com/Icinga/icinga-powershell-psplugins
 .NOTES
 #>
 
@@ -29,25 +29,24 @@ function Invoke-IcingaCheckDiskStatus {
     $DiskStatus = Show-IcingaDiskData;
     $DiskPackage = New-IcingaCheckPackage -Name 'Disk Drives Status' -OperatorAnd -Verbose $Verbosity;
 
+    [hashtable]$PSProviderEnums = @{};
+    [hashtable]$DiskDriveStatus = @{
+        'OK'         = 0;
+        'Error'      = 1;
+        'Degraded'   = 2;
+        'Unknown'    = 3;
+        'Pred Fail'  = 4;
+        'Starting'   = 5;
+        'Stopping'   = 6;
+        'Service'    = 7;
+        'Stressed'   = 8;
+        'NonRecover' = 9;
+        'No Contact' = 10;
+        'Lost Comm'  = 11;
+    }
 
-    # [hashtable]$DiskDriveStatus = @{
-    #     'OK'         = 0;
-    #     'Error'      = 1;
-    #     'Degraded'   = 2;
-    #     'Unknown'    = 3;
-    #     'Pred Fail'  = 4;
-    #     'Starting'   = 5;
-    #     'Stopping'   = 6;
-    #     'Service'    = 7;
-    #     'Stressed'   = 8;
-    #     'NonRecover' = 9;
-    #     'No Contact' = 10;
-    #     'Lost Comm'  = 11;
-    
-    # }
-    
-    # $ErrorActionPreference = "SilentlyContinue"
-    # $PSProviderEnums.Add('DiskDriveStatus', $DiskDriveStatus);
+    $ErrorActionPreference = "SilentlyContinue"
+    $PSProviderEnums.Add('DiskDriveStatus', $DiskDriveStatus);
 
 
     foreach ($Disk in $DiskStatus.Values) {

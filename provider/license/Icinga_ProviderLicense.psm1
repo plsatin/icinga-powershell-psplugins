@@ -1,4 +1,4 @@
-﻿Import-IcingaLib provider\enums;
+﻿# Import-IcingaLib provider\enums;
 
 function Get-IcingaSoftwareLicensingProduct {
     param(
@@ -6,26 +6,26 @@ function Get-IcingaSoftwareLicensingProduct {
     );
 
     <# #>
+    [hashtable]$PSProviderEnums = @{};
+    [hashtable]$LicenseStatusDescription = @{
+        0 = 'Unlicensed';
+        1 = 'Licensed';
+        2 = 'Out-Of-Box Grace Period';
+        3 = 'Out-Of-Tolerance Grace Period';
+        4 = 'Non-Genuine Grace Period';
+        5 = 'Notification';
+        6 = 'Extended Grace';
+    }
 
-    # [hashtable]$LicenseStatusDescription = @{
-    #     0 = 'Unlicensed';
-    #     1 = 'Licensed';
-    #     2 = 'Out-Of-Box Grace Period';
-    #     3 = 'Out-Of-Tolerance Grace Period';
-    #     4 = 'Non-Genuine Grace Period';
-    #     5 = 'Notification';
-    #     6 = 'Extended Grace';
-    # }
-
-    # $ErrorActionPreference = "SilentlyContinue"
-    # $PSProviderEnums.Add('LicenseStatusDescription', $LicenseStatusDescription);
+    $ErrorActionPreference = "SilentlyContinue"
+    $PSProviderEnums.Add('LicenseStatusDescription', $LicenseStatusDescription);
 
 
 
     $LicenseInformation = Get-WmiObject -Class SoftwareLicensingProduct | Where-Object PartialProductKey | Select-Object ID, Name, ApplicationId, LicenseStatus, ProductKeyChannel, KeyManagementServiceMachine;
     [hashtable]$LicenseData = @{};
     [int]$LicenseCount = 0;
-    $LicenseData.Add('products', @{ });
+    $LicenseData.Add('products', @{});
 
     foreach ($lic in $LicenseInformation) {
         [string]$productname = $lic.Name;
@@ -33,7 +33,7 @@ function Get-IcingaSoftwareLicensingProduct {
         if ($ProductFilter.Count -ne 0) {
             # if (-Not $ProductFilter.Contains($productname)) {
             if (-Not $productname.Contains($ProductFilter)) {
-                    continue;
+                continue;
             }
         }
 
@@ -41,14 +41,14 @@ function Get-IcingaSoftwareLicensingProduct {
 
         $LicenseData.products.Add(
             $lic.ID, @{
-                    'Name' = $lic.Name;
-                    'ApplicationId' = $lic.ApplicationId;
-                    'ProductKeyChannel' = $lic.ProductKeyChannel;
-                    'LicenseStatus' = @{
-                        'raw'   = $lic.LicenseStatus;
-                        'value' = $PSProviderEnums.LicenseStatusDescription[[int]$lic.LicenseStatus];
-                    };
-                    'KeyManagementServiceMachine' = $lic.KeyManagementServiceMachine
+                'Name'                        = $lic.Name;
+                'ApplicationId'               = $lic.ApplicationId;
+                'ProductKeyChannel'           = $lic.ProductKeyChannel;
+                'KeyManagementServiceMachine' = $lic.KeyManagementServiceMachine;
+                'LicenseStatus'               = @{
+                    'raw'   = $lic.LicenseStatus;
+                    'value' = $PSProviderEnums.LicenseStatusDescription[[int]$lic.LicenseStatus];
+                }
             }
         );
     }
@@ -62,7 +62,7 @@ function Get-IcingaLicenseStatus()
 {
 
     $license = Get-WmiObject -Class SoftwareLicensingProduct | Where-Object PartialProductKey; # | Select-Object Name, ApplicationId, LicenseStatus, ProductKeyChannel
-    return @{'value' = $license.LicenseStatus; 'name' = 'LicenseStatus'};
+    return @{ 'value' = $license.LicenseStatus; 'name' = 'LicenseStatus' };
 }
 
 
