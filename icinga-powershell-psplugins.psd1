@@ -36,4 +36,3 @@
     }
     HelpInfoURI       = ''
 }
-
