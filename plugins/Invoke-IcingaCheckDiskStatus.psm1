@@ -26,7 +26,7 @@ function Invoke-IcingaCheckDiskStatus {
         [int]$Verbosity     = 3
     );
 
-    $DiskStatus = Show-IcingaDiskData;
+    $DiskStatus = Get-IcingaPhysicalDiskInfo;
     $DiskPackage = New-IcingaCheckPackage -Name 'Disk Drives Status' -OperatorAnd -Verbose $Verbosity;
 
     [hashtable]$PSProviderEnums = @{};
